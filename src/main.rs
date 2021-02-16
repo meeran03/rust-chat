@@ -26,7 +26,7 @@ fn main() {
     }
 }
 
-fn handle_client(mut stream: TcpStream, chat_room: Arc<ChatRoom>) {
+fn handle_client(mut stream: TcpStream, chat_room: Arc<Arc<ChatRoom>>) {
     let mut nickname_buffer = vec![0; 64];
     stream.read(&mut nickname_buffer).unwrap();
     let nickname = String::from_utf8_lossy(&nickname_buffer).trim_end().to_string();
