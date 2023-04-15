@@ -49,7 +49,7 @@ impl ChatRoom {
         let clients = self.clients.lock().unwrap();
         for (nickname, client) in clients.iter() {
             if nickname.as_str() != sender {
-                writeln!(client, "{}: {}", sender, message).unwrap();
+                // writeln!(client, "{}: {}", sender, message).unwrap();
             }
         }
     }
